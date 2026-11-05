@@ -22,18 +22,24 @@
   --btn:#17172f;--btn-ink:#fff;--pink:#ff3d71;--pink-soft:#ffc9d8;
   --red:#c8134a;--red-soft:#ffd9e4;--amb:#8a6200;--amb-soft:#fdf0b5;--grn:#237a14;--grn-soft:#d7f5cb;--gry:#55556f;--gry-soft:#ececf5;
   --shadow:0 2px 4px rgba(40,30,90,.05),0 10px 30px rgba(60,50,120,.12);
-  --sheet:#f4f2fb;
+  --sheet:#f4f2fb;--stage:linear-gradient(180deg,rgba(255,255,255,.65),rgba(255,255,255,.12));--toast:#17172f;--page:#cdbfe6;
 }
 @media (prefers-color-scheme:dark){
-  :root{--bg:linear-gradient(165deg,#1b1c40 0%,#2b2557 50%,#3b2d5c 100%);
-  --card:rgba(52,50,100,.74);--glass:rgba(255,255,255,.07);--glass-line:rgba(255,255,255,.14);--input:rgba(255,255,255,.08);
-  --ink:#f1f0ff;--mute:#a7a6cc;--line:rgba(255,255,255,.12);
-  --pri:#b3afff;--pri-soft:#37346e;--btn:#f1f0ff;--btn-ink:#17172f;--pink:#ff5c8a;--pink-soft:#9a4268;
-  --red:#ff93b3;--red-soft:#4d1f36;--amb:#ffd166;--amb-soft:#4d3d14;--grn:#7de08a;--grn-soft:#1f4429;--gry:#c6c5e3;--gry-soft:#3a386b;
-  --shadow:none;--sheet:#27254f}
+  :root:not([data-theme=light]){--bg:radial-gradient(130% 55% at 50% -8%,#0f3d4c 0%,rgba(8,40,52,.55) 38%,transparent 70%),linear-gradient(180deg,#05090c 0%,#04070a 100%);
+  --card:rgba(26,30,34,.86);--glass:rgba(255,255,255,.05);--glass-line:rgba(255,255,255,.10);--input:rgba(255,255,255,.07);
+  --ink:#f3f6f8;--mute:#8e9ba6;--line:rgba(255,255,255,.09);
+  --pri:#59a9ff;--pri-soft:#14304f;--btn:#2f8bff;--btn-ink:#fff;--pink:#ff5c8a;--pink-soft:#7a2e4a;
+  --red:#ff8fab;--red-soft:#43192a;--amb:#ffd166;--amb-soft:#3d3112;--grn:#6fe08a;--grn-soft:#133b22;--gry:#b9c4cd;--gry-soft:#242b31;
+  --shadow:none;--sheet:#0d1215;--stage:linear-gradient(180deg,rgba(255,255,255,.11),rgba(255,255,255,.02));--toast:#2b343b;--page:#05090c;}
 }
+:root[data-theme=dark]{--bg:radial-gradient(130% 55% at 50% -8%,#0f3d4c 0%,rgba(8,40,52,.55) 38%,transparent 70%),linear-gradient(180deg,#05090c 0%,#04070a 100%);
+  --card:rgba(26,30,34,.86);--glass:rgba(255,255,255,.05);--glass-line:rgba(255,255,255,.10);--input:rgba(255,255,255,.07);
+  --ink:#f3f6f8;--mute:#8e9ba6;--line:rgba(255,255,255,.09);
+  --pri:#59a9ff;--pri-soft:#14304f;--btn:#2f8bff;--btn-ink:#fff;--pink:#ff5c8a;--pink-soft:#7a2e4a;
+  --red:#ff8fab;--red-soft:#43192a;--amb:#ffd166;--amb-soft:#3d3112;--grn:#6fe08a;--grn-soft:#133b22;--gry:#b9c4cd;--gry-soft:#242b31;
+  --shadow:none;--sheet:#0d1215;--stage:linear-gradient(180deg,rgba(255,255,255,.11),rgba(255,255,255,.02));--toast:#2b343b;--page:#05090c;}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{background:#cdbfe6}
+html{background:var(--page)}
 body{margin:0;color:var(--ink);font:15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh}
 body::before{content:'';position:fixed;inset:0;background:var(--bg);z-index:-1}
 body.lock{overflow:hidden}
@@ -174,7 +180,7 @@ h3{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--mute
 .carcard .meta small{color:var(--mute);display:block}
 .carcard .meta>div:first-child{min-width:0}
 .plate{white-space:nowrap;flex:none}
-.carstage{border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.65),rgba(255,255,255,.12));padding:8px 10px 0}
+.carstage{border-radius:22px;background:var(--stage);padding:8px 10px 0}
 .carstage svg,.carstage canvas{width:100%;height:auto;display:block;max-height:190px;margin:0 auto;object-fit:contain}
 .cpic canvas{display:block;max-width:100%;height:auto}
 .cpic{line-height:0}
@@ -201,7 +207,7 @@ h3{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--mute
 .vbody{flex:1;overflow:auto;display:grid;place-items:center;min-height:0}
 .vbody img{max-width:100%;max-height:100%}
 .vbody iframe{width:100%;height:100%;border:0;background:#fff}
-#toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);background:#17172f;color:#fff;padding:11px 18px;border-radius:99px;opacity:0;pointer-events:none;transition:.25s;z-index:99;max-width:90%;text-align:center}
+#toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);background:var(--toast);color:#fff;padding:11px 18px;border-radius:99px;opacity:0;pointer-events:none;transition:.25s;z-index:99;max-width:90%;text-align:center}
 #toast.show{opacity:1;transform:translateX(-50%)}
 </style>
 </head>
@@ -408,7 +414,9 @@ const FUEL=['Бензин','Газ (метан/пропан)','Бензин + г
 /* ========= хранилище ========= */
 const KEY='autorent_v1';
 let db=load();
-function fixDb(d){d.settings=Object.assign({currency:'$',custom:{},ownerName:'Шо-Махмуд'},d.settings||{});if(!d.settings.custom)d.settings.custom={};d.cars=d.cars||[];d.payments=d.payments||[];d.clients=d.clients||[];return d}
+function applyTheme(){const t=(db&&db.settings&&db.settings.theme)||'dark';const r=document.documentElement;if(t==='auto')r.removeAttribute('data-theme');else r.setAttribute('data-theme',t);const dk=t==='dark'||(t==='auto'&&window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches);const m=document.querySelector('meta[name=theme-color]');if(m)m.content=dk?'#05090c':'#b7baf0'}
+applyTheme();
+function fixDb(d){d.settings=Object.assign({currency:'$',custom:{},ownerName:'Шо-Махмуд',theme:'dark'},d.settings||{});if(!d.settings.custom)d.settings.custom={};d.cars=d.cars||[];d.payments=d.payments||[];d.clients=d.clients||[];return d}
 function load(){
   try{const d=JSON.parse(localStorage.getItem(KEY));if(d&&d.clients)return fixDb(d)}catch(e){}
   return fixDb({});
@@ -674,6 +682,8 @@ function viewMore(){
   return `<h1>Ещё</h1>
   <div class="card pad">
     <div class="field"><label>Имя владельца (для приветствия и подписи в напоминаниях)</label><input id="owner" value="${esc(owner())}"></div>
+    <div class="field"><label>Тема оформления</label>
+      <select id="theme">${[['dark','Тёмная'],['light','Светлая'],['auto','Как в системе']].map(([v,n])=>`<option value="${v}" ${(db.settings.theme||'dark')===v?'selected':''}>${n}</option>`).join('')}</select></div>
     <div class="field" style="margin:0"><label>Валюта</label>
       <select id="cur">${['$','€','сум','₽'].map(c=>`<option ${c===cur?'selected':''}>${c}</option>`).join('')}</select></div>
   </div>
@@ -1073,7 +1083,7 @@ const A={
     if(!confirm('Удалить ВСЕ данные (клиентов, авто, оплаты, документы)?'))return;
     if(!confirm('Точно удалить? Восстановить будет нельзя (если нет резервной копии).'))return;
     [...db.clients,...db.cars].forEach(e=>(e.docs||[]).forEach(d=>fdel(d.id)));
-    db=fixDb({settings:{currency:db.settings.currency,custom:db.settings.custom,ownerName:db.settings.ownerName}});save();render();toast('Все данные удалены');
+    db=fixDb({settings:{currency:db.settings.currency,custom:db.settings.custom,ownerName:db.settings.ownerName,theme:db.settings.theme}});save();render();toast('Все данные удалены');
   }
 };
 document.addEventListener('click',e=>{
@@ -1112,6 +1122,7 @@ document.addEventListener('change',e=>{
   if(t.id==='f_colorpick'){syncDraft();const dr=S.modal.draft;dr.colorHex=t.value;dr.color='Свой цвет';renderModal()}
   if(t.id==='carPhotoIn'){const f=t.files[0];t.value='';if(f)setCarPhoto(f)}
   if(t.id==='fileIn'){handleFiles([...t.files]);t.value=''}
+  if(t.id==='theme'){db.settings.theme=t.value;save();applyTheme();toast('Тема изменена')}
   if(t.id==='cur'){db.settings.currency=t.value;save();render();toast('Валюта изменена')}
   if(t.id==='imp'){importBackup(t.files[0]);t.value=''}
 });
@@ -1146,7 +1157,7 @@ async function importBackup(file){
     if(!j.db||!j.db.clients)throw 0;
     if(!confirm('Заменить текущие данные данными из копии?'))return;
     for(const id in (j.files||{})){const b=await (await fetch(j.files[id])).blob();await fput(id,b)}
-    db=fixDb(j.db);save();render();toast('Данные восстановлены');
+    db=fixDb(j.db);save();applyTheme();render();toast('Данные восстановлены');
   }catch(e){toast('Не удалось прочитать файл копии')}
 }
 
