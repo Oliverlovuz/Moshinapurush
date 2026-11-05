@@ -320,6 +320,232 @@ main{padding-top:max(18px,env(safe-area-inset-top))}
 <input type="file" id="fileIn" multiple accept="image/*,.pdf,.doc,.docx,.xls,.xlsx" hidden>
 
 <script>
+/* ===== i18n: русский (исходный) → o'zbekcha (латиница) → ўзбекча (кириллица) ===== */
+var I18N_E={
+"+ Добавить авто":"+ Avto qo'shish","+ Добавить в справочник":"+ Ma'lumotnomaga qo'shish","+ Добавить клиента":"+ Mijoz qo'shish","+ Ещё":"+ Yana","+ Новое авто":"+ Yangi avto",
+"VIN (необязательно)":"VIN (majburiy emas)",
+"Авто":"Avto","Авто добавлено и выбрано":"Avto qo'shildi va tanlandi","Авто не найдено":"Avto topilmadi","Авто с таким номером уже есть":"Bunday raqamli avto allaqachon bor","Авто сейчас в аренде — сначала завершите аренду":"Avto hozir ijarada — avval ijarani yakunlang",
+"АвтоРента":"AvtoRenta","АвтоРента · бета-версия. Данные не отправляются на сервер.":"AvtoRenta · beta-versiya. Ma'lumotlar serverga yuborilmaydi.",
+"Автомат":"Avtomat","Автомобилей пока нет.":"Hozircha avtomobillar yo'q.","Автомобили":"Avtomobillar","Автомобиль":"Avtomobil","Автомобиль добавлен":"Avtomobil qo'shildi","Автомобиль не выбран":"Avtomobil tanlanmagan",
+"Активных клиентов нет":"Faol mijozlar yo'q","Аренда":"Ijara","Аренда завершена":"Ijara yakunlandi",
+"Бежевый":"Bej","Без автомобиля":"Avtomobilsiz","Белый":"Oq","Бензин":"Benzin","Бензин + газ":"Benzin + gaz","Ближайшие платежи":"Yaqin to'lovlar","Ближайших платежей нет":"Yaqin to'lovlar yo'q","Бордовый":"Bordo",
+"В аренде":"Ijarada","В списке уже есть популярные в Узбекистане марки. Нет вашей? Добавьте — она появится в подсказках. Также новая марка сохраняется сама, когда вы вписываете её при добавлении авто.":"Ro'yxatda O'zbekistonda mashhur markalar allaqachon bor. Sizniki yo'qmi? Qo'shing — u maslahatlarda paydo bo'ladi. Avto qo'shayotganda yozgan yangi markangiz ham o'zi saqlanadi.",
+"В срок":"O'z vaqtida","Валюта":"Valyuta","Валюта изменена":"Valyuta o'zgartirildi","Вариатор":"Variator","Введите имя клиента":"Mijoz ismini kiriting","Введите марку":"Markani kiriting","Введите сумму":"Summani kiriting","Весь долг":"Butun qarz","Внесено":"Kiritilgan",
+"Водительские права":"Haydovchilik guvohnomasi","Водительские права №":"Haydovchilik guvohnomasi №","Возобновить аренду":"Ijarani qayta boshlash","Впереди":"Oldinda","Все":"Hammasi",
+"Все данные и документы хранятся":"Barcha ma'lumotlar va hujjatlar saqlanadi","Все данные удалены":"Barcha ma'lumotlar o'chirildi",
+"Выберите марку и модель — подставится фото. Нет вашей модели? Добавьте своё фото кнопкой ниже.":"Marka va modelni tanlang — rasm o'zi qo'yiladi. Modelingiz yo'qmi? Quyidagi tugma bilan o'z rasmingizni qo'shing.",
+"Выберите ниже или впишите свою":"Quyidan tanlang yoki o'zingiznikini yozing",
+"Газ (метан/пропан)":"Gaz (metan/propan)","Гибрид":"Gibrid","Главная":"Bosh sahifa","Год выпуска":"Ishlab chiqarilgan yili","Голубой":"Havorang","Госномер *":"Davlat raqami *","Готовлю копию…":"Nusxa tayyorlanmoqda…","График платежей":"To'lovlar jadvali",
+"ДЕМО-документ (пример)":"DEMO hujjat (namuna)","Данные":"Ma'lumotlar","Данные восстановлены":"Ma'lumotlar tiklandi","Дата":"Sana","Демо-данные":"Demo ma'lumotlar","Демо-данные добавлены":"Demo ma'lumotlar qo'shildi",
+"День оплаты (1–31) *":"To'lov kuni (1–31) *","День оплаты — число от 1 до 31":"To'lov kuni — 1 dan 31 gacha son","Дизель":"Dizel",
+"Добавить демо-данные к существующим?":"Demo ma'lumotlar mavjudlariga qo'shilsinmi?","Добавлено в справочник":"Ma'lumotnomaga qo'shildi",
+"Доверенность":"Ishonchnoma","Договор аренды":"Ijara shartnomasi","Договор купли-продажи":"Oldi-sotdi shartnomasi","Документ прикреплён":"Hujjat biriktirildi",
+"Документов на авто нет — откройте авто, чтобы приложить доверенность":"Avtoga hujjatlar yo'q — ishonchnomani biriktirish uchun avtoni oching",
+"Документы":"Hujjatlar","Документы клиента":"Mijoz hujjatlari","Документы прикреплены":"Hujjatlar biriktirildi","Долг":"Qarz","Другое":"Boshqa","Ещё":"Yana","Ещё ожидается":"Yana kutilmoqda","Ждём":"Kutilmoqda","Жёлтый":"Sariq",
+"Завершены":"Yakunlangan","Завершить аренду":"Ijarani yakunlash","Завершить аренду? Автомобиль станет свободным.":"Ijarani yakunlaysizmi? Avtomobil bo'sh bo'ladi.","Загрузить демо-данные":"Demo ma'lumotlarni yuklash","Закрыть":"Yopish",
+"Залог":"Garov","Залог (необязательно)":"Garov (majburiy emas)","Заменить текущие данные данными из копии?":"Joriy ma'lumotlar nusxadagi ma'lumotlar bilan almashtirilsinmi?","Заменить фото":"Rasmni almashtirish","Заметка":"Eslatma","Записать оплату":"To'lovni yozish",
+"Здесь всё по аренде — в одном окне.":"Ijara bo'yicha hammasi — bitta oynada.","Зелёный":"Yashil","Золотистый":"Tillarang","Изменить автомобиль":"Avtomobilni tahrirlash","Изменить клиента":"Mijozni tahrirlash",
+"Имя владельца (для приветствия и подписи в напоминаниях)":"Egasining ismi (salomlashish va eslatmalardagi imzo uchun)","Имя клиента *":"Mijoz ismi *",
+"КБ":"KB","КПП":"Uzatmalar qutisi","Как в системе":"Tizimdagidek","Карта":"Karta","Клиент добавлен":"Mijoz qo'shildi","Клиент не найден":"Mijoz topilmadi","Клиент удалён":"Mijoz o'chirildi","Клиентов пока нет.":"Hozircha mijozlar yo'q.","Клиенты":"Mijozlar",
+"Комментарий":"Izoh","Копия сохранена":"Nusxa saqlandi","Коричневый":"Jigarrang","Красный":"Qizil","Кроссовер":"Krossover","Кто арендует":"Kim ijaraga oladi",
+"Кто и когда должен заплатить, у кого долг, где договор, паспорт и доверенность.":"Kim qachon to'lashi kerak, kimda qarz bor, shartnoma, pasport va ishonchnoma qayerda.",
+"МБ":"MB","Марка":"Marka","Марка *":"Marka *","Механика":"Mexanika","Минивэн":"Miniven","Модель":"Model","Модель *":"Model *","Можно сдавать":"Ijaraga berish mumkin",
+"Можно сфотографировать документ камерой или выбрать файл (фото, PDF, Word).":"Hujjatni kamera bilan suratga olish yoki fayl tanlash mumkin (rasm, PDF, Word).",
+"Наличные":"Naqd pul","Например: Aeolus":"Masalan: Aeolus","Например: Dongfeng":"Masalan: Dongfeng","Например: Азиз Юсупов":"Masalan: Aziz Yusupov","Например: платит наличными, просил отсрочку…":"Masalan: naqd to'laydi, kechiktirishni so'radi…",
+"Начало аренды *":"Ijara boshlanishi *","Начните с автомобиля, затем добавьте клиента.":"Avtomobildan boshlang, so'ng mijoz qo'shing.","Не оплачено":"To'lanmagan",
+"Не удалось открыть файл":"Faylni ochib bo'lmadi","Не удалось открыть фото":"Rasmni ochib bo'lmadi","Не удалось прочитать файл копии":"Nusxa faylini o'qib bo'lmadi","Не удалось сохранить: память заполнена":"Saqlab bo'lmadi: xotira to'lgan",
+"Нет в списке? Просто впишите свою марку или модель — она сохранится в справочнике.":"Ro'yxatda yo'qmi? Markani yoki modelni shunchaki yozing — u ma'lumotnomada saqlanadi.",
+"Ничего не найдено":"Hech narsa topilmadi","Новое авто":"Yangi avto","Новый автомобиль":"Yangi avtomobil","Новый клиент":"Yangi mijoz","Общий долг":"Umumiy qarz","Один платёж":"Bitta to'lov","Оплат пока нет":"Hozircha to'lovlar yo'q",
+"Оплачено":"To'langan","Оплачено всего":"Jami to'langan","Оранжевый":"To'q sariq","Открыть":"Ochish","Паспорт":"Pasport","Паспорт: серия и номер":"Pasport: seriya va raqam","Перевод":"O'tkazma","Платежей ещё не было":"Hali to'lovlar bo'lmagan",
+"Платёж":"To'lov","Платёж в месяц":"Oyiga to'lov","Платёж сегодня":"Bugun to'lov","Поиск: имя, телефон, авто, госномер…":"Qidiruv: ism, telefon, avto, davlat raqami…","Получено":"Olingan","Поступления":"Tushumlar","Поступления по месяцам":"Oylar bo'yicha tushumlar",
+"Права №":"Guvohnoma №","Предоплата":"Oldindan to'lov","Предпросмотр этого типа файла недоступен.":"Bu turdagi faylni oldindan ko'rib bo'lmaydi.","Приём оплаты":"To'lovni qabul qilish","Просил отсрочку на неделю":"Bir haftaga kechiktirishni so'radi",
+"Просрочен":"Muddati o'tgan","Просроченных платежей нет 🎉":"Muddati o'tgan to'lovlar yo'q 🎉","Просрочены":"Muddati o'tganlar","Просрочили":"Kechiktirganlar","Расписка / залог":"Tilxat / garov","Резервная копия":"Zaxira nusxa","Робот":"Robot",
+"Светлая":"Och","Свободна":"Bo'sh","Свободных авто нет — добавьте новое.":"Bo'sh avtolar yo'q — yangisini qo'shing.","Свои марки и модели":"O'z markalarim va modellarim","Свой цвет":"O'z rangim","Своё фото":"O'z rasmim","Седан":"Sedan",
+"Серебристый":"Kumush","Серый":"Kulrang","Синий":"Ko'k","Скопировано":"Nusxalandi","Скопируйте текст:":"Matnni nusxalang:","Скоро":"Yaqinda","Скоро платёж":"To'lov yaqin","Следующий платёж":"Keyingi to'lov","Сначала выберите марку":"Avval markani tanlang",
+"Сохранено":"Saqlandi","Сохранить":"Saqlash","Способ":"Usul","Страховка (ОСАГО)":"Sug'urta (OSAGO)","Сумма *":"Summa *","Сумма в месяц *":"Oylik summa *","Телефон":"Telefon","Тема изменена":"Mavzu o'zgartirildi","Тема оформления":"Ko'rinish mavzusi",
+"Техпаспорт":"Texpasport","Топливо":"Yoqilg'i","Точно удалить? Восстановить будет нельзя (если нет резервной копии).":"Rostdan o'chiraymi? Tiklab bo'lmaydi (zaxira nusxa bo'lmasa).","Тёмная":"Qorong'i","Убрать":"Olib tashlash","Удалено":"O'chirildi","Удалить":"O'chirish",
+"Удалить ВСЕ данные (клиентов, авто, оплаты, документы)?":"BARCHA ma'lumotlar o'chirilsinmi (mijozlar, avtolar, to'lovlar, hujjatlar)?","Удалить автомобиль":"Avtomobilni o'chirish","Удалить автомобиль и его документы?":"Avtomobil va uning hujjatlari o'chirilsinmi?",
+"Удалить всё":"Hammasini o'chirish","Удалить документ?":"Hujjat o'chirilsinmi?","Удалить клиента":"Mijozni o'chirish","Удалить клиента вместе с историей оплат и документами? Это нельзя отменить.":"Mijoz to'lovlar tarixi va hujjatlari bilan o'chirilsinmi? Buni bekor qilib bo'lmaydi.","Удалить эту оплату?":"Bu to'lov o'chirilsinmi?",
+"Укажите госномер автомобиля":"Avtomobilning davlat raqamini kiriting","Укажите дату начала аренды":"Ijara boshlanish sanasini kiriting","Укажите марку и модель":"Marka va modelni kiriting","Укажите сумму платежа в месяц":"Oylik to'lov summasini kiriting",
+"Условия аренды":"Ijara shartlari","Файл не найден":"Fayl topilmadi","Файл не удалось сохранить (браузер не поддерживает хранилище)":"Faylni saqlab bo'lmadi (brauzer xotirani qo'llab-quvvatlamaydi)","Фиолетовый":"Binafsha","Фото автомобиля":"Avtomobil rasmi","Фото добавлено":"Rasm qo'shildi",
+"Фото модели подобрано автоматически; цвет можно менять ниже.":"Model rasmi avtomatik tanlandi; rangni quyida o'zgartirish mumkin.","Хотите сначала посмотреть, как это работает?":"Avval bu qanday ishlashini ko'rmoqchimisiz?","Хэтчбек":"Xetchbek","Цвет кузова":"Kuzov rangi","Цвет:":"Rang:","Чёрный":"Qora","Электро":"Elektr",
+"Это авто уже арендует другой клиент":"Bu avtoni boshqa mijoz ijaraga olgan",
+"Чтобы не потерять их или перенести на другой телефон/компьютер — сохраняйте копию.":"Yo'qotmaslik yoki boshqa telefon/kompyuterga ko'chirish uchun — nusxa saqlab turing.",
+"автомобиль":"avtomobil","в этом браузере на этом устройстве":"shu qurilmadagi shu brauzerda","для осмотра и сверки состояния":"holatni ko'rish va solishtirish uchun","долга нет":"qarz yo'q","за 6 месяцев":"6 oy uchun","в этом месяце":"shu oyda",
+"завершена":"yakunlangan","можно сдавать новому клиенту":"yangi mijozga berish mumkin","на право сдачи авто в аренду":"avtoni ijaraga berish huquqi uchun","не выбран":"tanlanmagan","не приложено":"biriktirilmagan","необязательно":"majburiy emas","нет номера":"raqam yo'q",
+"обе стороны":"ikki tomoni","платёж сегодня":"bugun to'lov","подписанный договор":"imzolangan shartnoma","предоплата":"oldindan to'lov","сум":"so'm","фото автомобиля":"avtomobil rasmi","фото или скан, разворот с фото":"rasm yoki skan, rasmli sahifa","часть платежа":"to'lovning bir qismi",
+"— машина выше окрашивается сама":"— yuqoridagi mashina o'zi bo'yaladi","▲ Только популярные":"▲ Faqat mashhurlar","✏ Другая марка":"✏ Boshqa marka","✏ Изменить данные авто":"✏ Avto ma'lumotlarini tahrirlash","✏ Изменить данные клиента":"✏ Mijoz ma'lumotlarini tahrirlash",
+"✓ Оплачено":"✓ To'langan","✓ приложено":"✓ biriktirilgan","✕ Убрать фото":"✕ Rasmni olib tashlash","⬆ Загрузить копию":"⬆ Nusxani yuklash","⬇ Скачать":"⬇ Yuklab olish","⬇ Скачать файл":"⬇ Faylni yuklab olish","⬇ Сохранить копию":"⬇ Nusxani saqlash",
+"💰 Принять оплату":"💰 To'lovni qabul qilish","📋 Копировать текст":"📋 Matnni nusxalash","📎 Прикрепить":"📎 Biriktirish","📞 Позвонить":"📞 Qo'ng'iroq qilish","📷 Показано ваше фото автомобиля.":"📷 Avtomobilingizning rasmi ko'rsatilgan.","🚗 Выбрать из свободных":"🚗 Bo'shlardan tanlash",
+"все платежи идут в срок 🎉":"barcha to'lovlar o'z vaqtida 🎉","мехрибон брат, добро пожаловать в АвтоРента":"mehribon birodar, AvtoRentaga xush kelibsiz","+ Ещё":"+ Yana","Предоплата ":"Oldindan to'lov",
+"Паспорт":"Pasport","Другое":"Boshqa","бета-версия. Данные не отправляются на сервер.":"beta-versiya. Ma'lumotlar serverga yuborilmaydi."
+};
+/* части: подставляются внутрь строки (по границам слов) */
+var I18N_P={
+"Привет,":"Salom,","мехрибон брат,":"mehribon birodar,","просрочили оплату:":"to'lovni kechiktirganlar:","Арендует:":"Ijarachi:","Раньше арендовали:":"Avval ijaraga olganlar:","Сейчас арендует:":"Hozir ijarada:","Это авто уже арендует:":"Bu avtoni allaqachon ijaraga olgan:",
+"Оплата записана:":"To'lov yozildi:","Не хватает":"Yetmaydi","внесено":"kiritilgan","срок:":"muddat:","⚠ нет:":"⚠ yo'q:","нет:":"yo'q:","Цвет:":"Rang:","Текущая задолженность:":"Joriy qarz:",
+"клиентов":"mijoz","клиента":"mijoz","клиент":"mijoz","паспорт":"pasport","права":"guvohnoma","договор":"shartnoma","доверенность":"ishonchnoma","техпаспорт":"texpasport","документ":"hujjat","долг":"qarz","Долг":"Qarz","дн.":"kun","КБ":"KB","МБ":"MB","Один платёж":"Bitta to'lov","Платёж":"To'lov","Весь долг":"Butun qarz"
+};
+/* правила с числами и вставками */
+var I18N_R=[
+[/^просрочено на (\d+) дн\.$/,"$1 kun kechikkan"],
+[/через (\d+) дн\./,"$1 kundan keyin"],
+[/^оплатили (\d+) из (\d+)$/,"$2 tadan $1 tasi to'ladi"],
+[/^каждое (\d+)-е число$/,"har oyning $1-sanasi"],
+[/^(\d+) в аренде$/,"$1 ta ijarada"],
+[/^(\d+) свободно$/,"$1 ta bo'sh"],
+[/^(\d+) дней$/,"$1 kun"],
+[/^История оплат \((\d+)\)$/,"To'lovlar tarixi ($1)"],
+[/^▼ Все марки \((\d+)\)$/,"▼ Barcha markalar ($1)"],
+[/^Оплата за (.+)$/,"$1 uchun to'lov"],
+[/^Для «(.*)» пока нет готового фото — показан похожий автомобиль\. Добавьте своё фото 📷\.$/,"«$1» uchun hali tayyor rasm yo'q — o'xshash avtomobil ko'rsatilgan. O'z rasmingizni qo'shing 📷."],
+[/^Новая марка «(.*)» — впишите модель, и она сохранится в справочнике\.$/,"Yangi marka «$1» — modelni yozing, u ma'lumotnomada saqlanadi."]
+];
+var I18N_KEEP={"Язык / Til / Тил":1,"Русский":1,"Ўзбекча":1};
+var LANG='ru';
+var UZM=['yanvar','fevral','mart','aprel','may','iyun','iyul','avgust','sentabr','oktabr','noyabr','dekabr'];
+var UZS=['yan','fev','mar','apr','may','iyun','iyul','avg','sen','okt','noy','dek'];
+function lat2cyr(s){
+  s=String(s).replace(/[ʻʼ’‘`´]/g,"'");
+  var KEEPW=/(WhatsApp|Telegram|VIN|PDF|Word|OSAGO|AvtoRentaga|AvtoRenta|Aeolus|Dongfeng|MB|KB|kompyuterga|kompyuter)/g;
+  var parts=s.split(KEEPW),out='';
+  var M={a:'а',b:'б',d:'д',f:'ф',g:'г',h:'ҳ',i:'и',j:'ж',k:'к',l:'л',m:'м',n:'н',o:'о',p:'п',q:'қ',r:'р',s:'с',t:'т',u:'у',v:'в',x:'х',y:'й',z:'з',c:'к',w:'в',e:'е'};
+  for(var pi=0;pi<parts.length;pi++){
+    var p=parts[pi];
+    if(pi%2===1){out+=(p==='kompyuterga'?'компьютерга':p==='kompyuter'?'компьютер':p);continue}
+    var i=0,L=p.length,r='';
+    while(i<L){
+      var ch=p[i],lo=ch.toLowerCase(),nx=(p[i+1]||''),nl=nx.toLowerCase(),n2=(p[i+2]||'').toLowerCase();
+      var up=ch!==lo,res=null,adv=1;
+      var prev=i>0?p[i-1]:'',isStart=!/[A-Za-z']/.test(prev);
+      if((lo==='o'||lo==='g')&&nl==="'"){res=lo==='o'?'ў':'ғ';adv=2}
+      else if(lo==='s'&&nl==='h'){res='ш';adv=2}
+      else if(lo==='c'&&nl==='h'){res='ч';adv=2}
+      else if(lo==='y'&&nl==='o'&&n2==="'"){res='йў';adv=3}
+      else if(lo==='y'&&nl==='o'){res='ё';adv=2}
+      else if(lo==='y'&&nl==='u'){res='ю';adv=2}
+      else if(lo==='y'&&nl==='a'){res='я';adv=2}
+      else if(lo==='y'&&nl==='e'){res='е';adv=2}
+      else if(lo==='e'){res=isStart?'э':'е'}
+      else if(ch==="'"){res='ъ'}
+      else if(M[lo]!==undefined){res=M[lo]}
+      if(res===null){r+=ch;i++;continue}
+      if(up){
+        var rawUp=p.substr(i,adv)===p.substr(i,adv).toUpperCase()&&adv>1;
+        var nextUp=/[A-Z]/.test(p[i+adv]||'')||/[A-Z]/.test(p[i-1]||'');
+        res=(adv>1&&rawUp)||(adv===1&&nextUp)?res.toUpperCase():res.charAt(0).toUpperCase()+res.slice(1);
+      }
+      r+=res;i+=adv;
+    }
+    out+=r;
+  }
+  return out;
+}
+var _D=null;
+function _build(){
+  var cv=LANG==='uzc'?lat2cyr:function(x){return x};
+  _D={E:{},P:[],R:[]};
+  Object.keys(I18N_E).forEach(function(k){_D.E[k]=cv(I18N_E[k])});
+  Object.keys(I18N_P).sort(function(a,b){return b.length-a.length}).forEach(function(k){
+    var esc=k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    _D.P.push([new RegExp('(^|[^А-Яа-яЁёA-Za-z_])'+esc+'(?![А-Яа-яЁё_])','g'),cv(I18N_P[k])]);
+  });
+  I18N_R.forEach(function(r){_D.R.push([r[0],cv(r[1])])});
+}
+var CYR=/[А-Яа-яЁё]/;
+function trPiece(p){
+  var m=p.match(/^(\s*)([\s\S]*?)(\s*)$/),a=m[1],core=m[2],b=m[3];
+  if(!core||!CYR.test(core))return p;
+  if(I18N_KEEP[core])return p;
+  var e=_D.E[core];if(e!==undefined)return a+e+b;
+  var pm=core.match(/^([^A-Za-zА-Яа-яЁё0-9«]+)([\s\S]+)$/);
+  if(pm){var e2=_D.E[pm[2]];if(e2!==undefined)return a+pm[1]+e2+b}
+  var t=core;
+  var cm=core.match(/^(.+?) (\d+)$/);if(cm&&_D.E[cm[1]]!==undefined)return a+_D.E[cm[1]]+' '+cm[2]+b;
+  var cm2=core.match(/^(.+?) \((\d+)\)$/);if(cm2){var pm2=cm2[1].match(/^([^A-Za-zА-Яа-яЁё0-9«]+)([\s\S]+)$/);var k2=_D.E[cm2[1]]!==undefined?_D.E[cm2[1]]:(pm2&&_D.E[pm2[2]]!==undefined?pm2[1]+_D.E[pm2[2]]:undefined);if(k2!==undefined)return a+k2+' ('+cm2[2]+')'+b}
+  for(var i=0;i<_D.R.length;i++){var r=_D.R[i];if(typeof r[1]==='string'&&r[1].charAt(0)==='@')continue;if(r[0].test(t)){t=t.replace(r[0],r[1]);if(!CYR.test(t))return a+t+b}}
+  for(var j=0;j<_D.P.length;j++){var q=_D.P[j];t=t.replace(q[0],function(_,pre){return pre+q[1]})}
+  return a+t+b;
+}
+function tr(s){
+  if(LANG==='ru'||s==null)return s;
+  s=String(s);if(!CYR.test(s))return s;
+  if(!_D)_build();
+  return s.split(' · ').map(trPiece).join(' · ');
+}
+/* ---------- DOM ---------- */
+var _SKIP={SCRIPT:1,STYLE:1,TEXTAREA:1,NOSCRIPT:1};
+var _ATTRS=['placeholder','title','aria-label','alt'];
+function _txt(n){
+  var pe=n.parentNode;if(!pe||_SKIP[pe.nodeName])return;
+  if(n.__t!==undefined&&n.nodeValue===n.__t)return;
+  var o=n.nodeValue;n.__o=o;
+  if(!CYR.test(o)){n.__t=o;return}
+  if(pe.nodeName==='OPTION'&&!pe.hasAttribute('value'))pe.setAttribute('value',o.trim());
+  var t=tr(o);n.__t=t;if(t!==o)n.nodeValue=t;
+}
+function _el(e){
+  if(e.nodeType!==1)return;
+  for(var i=0;i<_ATTRS.length;i++){
+    var a=_ATTRS[i];if(!e.hasAttribute(a))continue;
+    var v=e.getAttribute(a);e.__oa=e.__oa||{};
+    if(e.__oa[a]!==undefined&&e.__oa[a+'t']===v)continue;
+    e.__oa[a]=v;var t=tr(v);e.__oa[a+'t']=t;if(t!==v)e.setAttribute(a,t);
+  }
+}
+function _walk(root){
+  if(!root)return;
+  if(root.nodeType===3){_txt(root);return}
+  if(root.nodeType!==1)return;
+  _el(root);
+  var w=document.createTreeWalker(root,5,null),n;
+  while((n=w.nextNode())){if(n.nodeType===3)_txt(n);else _el(n)}
+}
+var _obs=null,_busy=false;
+function _onMut(ms){
+  if(LANG==='ru'||_busy)return;_busy=true;
+  try{
+    ms.forEach(function(m){
+      if(m.type==='childList')m.addedNodes.forEach(_walk);
+      else if(m.type==='characterData')_txt(m.target);
+      else if(m.type==='attributes')_el(m.target);
+    });
+  }finally{_busy=false;if(_obs)_obs.takeRecords()}
+}
+function _startObs(){
+  if(_obs||!document.body)return;
+  _obs=new MutationObserver(_onMut);
+  _obs.observe(document.body,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:_ATTRS});
+}
+function _restore(){
+  var w=document.createTreeWalker(document.body,5,null),n;_busy=true;
+  while((n=w.nextNode())){
+    if(n.nodeType===3){if(n.__o!==undefined&&n.nodeValue===n.__t){n.nodeValue=n.__o}n.__t=undefined}
+    else if(n.__oa){for(var i=0;i<_ATTRS.length;i++){var a=_ATTRS[i];if(n.__oa[a]!==undefined&&n.getAttribute(a)===n.__oa[a+'t'])n.setAttribute(a,n.__oa[a])}n.__oa=null}
+  }
+  _busy=false;if(_obs)_obs.takeRecords();
+}
+function setLang(l){
+  if(l!=='uz'&&l!=='uzc')l='ru';
+  if(document.body)_restore();
+  LANG=l;_D=null;
+  document.documentElement.lang=l==='ru'?'ru':'uz';
+  if(l!=='ru'&&document.body){_startObs();_busy=true;_walk(document.body);_busy=false;if(_obs)_obs.takeRecords()}
+}
+var _cf=window.confirm.bind(window),_pr=window.prompt.bind(window);
+window.confirm=function(m){return _cf(tr(m))};
+window.prompt=function(m,d){return _pr(tr(m),d)};
+function Lc(lat){return LANG==='uzc'?lat2cyr(lat):lat}
+function toLoc(d,o){
+  if(LANG==='ru')return d.toLocaleDateString('ru-RU',o);
+  var p=[];if(o.day)p.push(d.getDate());
+  p.push(o.month==='long'?UZM[d.getMonth()]:UZS[d.getMonth()]);
+  if(o.year)p.push(d.getFullYear());
+  return Lc(p.join(' '));
+}
+
+</script>
+<script>
 /* без масштабирования щипком / двойным касанием (iOS Safari игнорирует user-scalable) */
 ['gesturestart','gesturechange','gestureend'].forEach(ev=>document.addEventListener(ev,e=>e.preventDefault(),{passive:false}));
 document.addEventListener('touchmove',e=>{if(e.touches&&e.touches.length>1)e.preventDefault()},{passive:false});
@@ -334,13 +560,13 @@ const today=()=>ymd(new Date());
 const pd=s=>{const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
 const dayDiff=(a,b)=>Math.round((pd(a)-pd(b))/864e5);
 const stripG=t=>t.replace(/\s?г\.?$/,'');
-const fmtDate=s=>s?stripG(pd(s).toLocaleDateString('ru-RU',{day:'numeric',month:'short',year:'numeric'})):'';
-const fmtShort=s=>pd(s).toLocaleDateString('ru-RU',{day:'numeric',month:'long'});
+const fmtDate=s=>s?stripG(toLoc(pd(s),{day:'numeric',month:'short',year:'numeric'})):'';
+const fmtShort=s=>toLoc(pd(s),{day:'numeric',month:'long'});
 const initials=n=>(n||'?').trim().split(/\s+/).slice(0,2).map(w=>w[0]).join('').toUpperCase();
 const fmtSize=b=>b>1048576?(b/1048576).toFixed(1)+' МБ':Math.max(1,Math.round(b/1024))+' КБ';
 function money(n){
   const c=db.settings.currency||'$';const v=Math.round(n*100)/100;const s=v.toLocaleString('ru-RU');
-  return (c==='$'||c==='€')?c+s:s+' '+c;
+  return (c==='$'||c==='€')?c+s:s+' '+tr(c);
 }
 function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('show'),2600)}
 const normPlate=v=>String(v||'').toUpperCase().replace(/\s+/g,' ').trim();
@@ -527,7 +753,7 @@ const FUEL=['Бензин','Газ (метан/пропан)','Бензин + г
 const KEY='autorent_v1';
 let db=load();
 function applyTheme(){const t=(db&&db.settings&&db.settings.theme)||'dark';const r=document.documentElement;if(t==='auto')r.removeAttribute('data-theme');else r.setAttribute('data-theme',t);const dk=t==='dark'||(t==='auto'&&window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches);const m=document.querySelector('meta[name=theme-color]');if(m)m.content=dk?'#2a2b2e':'#f6f1e9'}
-applyTheme();
+applyTheme();setLang((db.settings&&db.settings.lang)||'ru');
 function fixDb(d){d.settings=Object.assign({currency:'$',custom:{},ownerName:'Шо-Махмуд',theme:'dark'},d.settings||{});if(!d.settings.custom)d.settings.custom={};d.cars=d.cars||[];d.payments=d.payments||[];d.clients=d.clients||[];return d}
 function load(){
   try{const d=JSON.parse(localStorage.getItem(KEY));if(d&&d.clients)return fixDb(d)}catch(e){}
@@ -696,7 +922,7 @@ function incomeBars(){
   const now=new Date(),arr=[];
   for(let i=5;i>=0;i--){
     const d=new Date(now.getFullYear(),now.getMonth()-i,1),ym=ymd(d).slice(0,7);
-    arr.push({ym,label:d.toLocaleDateString('ru-RU',{month:'short'}).replace('.',''),sum:db.payments.filter(p=>p.date.slice(0,7)===ym).reduce((a,p)=>a+p.amount,0)});
+    arr.push({ym,label:toLoc(d,{month:'short'}).replace('.',''),sum:db.payments.filter(p=>p.date.slice(0,7)===ym).reduce((a,p)=>a+p.amount,0)});
   }
   return arr;
 }
@@ -731,7 +957,7 @@ function viewHome(){
   const overdue=all.filter(x=>x.k.status==='overdue');
   const soon=all.filter(x=>['today','soon'].includes(x.k.status)||(x.k.status==='ok'&&x.k.diff<=7));
   const mr=monthRows(),paidN=mr.filter(r=>r.paid).length;
-  const month=new Date().toLocaleDateString('ru-RU',{month:'long'});
+  const month=toLoc(new Date(),{month:'long'});
   const empty=t=>`<div class="empty">${t}</div>`;
   return `<div class="topbar"><div><h1>Привет, ${esc(owner())}</h1>
      <p class="sub">мехрибон брат, ${st.over?`просрочили оплату: ${st.over} ${plural(st.over,'клиент','клиента','клиентов')}`:'все платежи идут в срок 🎉'}</p></div></div>
@@ -803,6 +1029,8 @@ function viewMore(){
   return `<h1>Ещё</h1>
   <div class="card pad">
     <div class="field"><label>Имя владельца (для приветствия и подписи в напоминаниях)</label><input id="owner" value="${esc(owner())}"></div>
+    <div class="field"><label>Язык / Til / Тил</label>
+      <select id="lang"><option value="ru" ${LANG==='ru'?'selected':''}>Русский</option><option value="uz" ${LANG==='uz'?'selected':''}>O'zbekcha</option><option value="uzc" ${LANG==='uzc'?'selected':''}>Ўзбекча</option></select></div>
     <div class="field"><label>Тема оформления</label>
       <select id="theme">${[['dark','Тёмная'],['light','Светлая'],['auto','Как в системе']].map(([v,n])=>`<option value="${v}" ${(db.settings.theme||'dark')===v?'selected':''}>${n}</option>`).join('')}</select></div>
     <div class="field" style="margin:0"><label>Валюта</label>
@@ -909,6 +1137,11 @@ function tplClientView(m){
 }
 function waNum(p){let d=String(p||'').replace(/\D/g,'');if(d.length===9)d='998'+d;else if(d.length===10&&d[0]==='8')d='998'+d.slice(1);return d}
 function remindText(c,k){
+  if(LANG!=='ru'){
+    let s=Lc("Assalomu alaykum, ")+c.name+Lc("! Avtomobil ijarasi uchun to'lovni eslatib o'taman (")+tr(carName(c.carId))+'): '+money(c.amount)+Lc(", muddat — ")+fmtDate(k.next)+'.';
+    if(k.debt>0)s+=Lc(" Joriy qarz: ")+money(k.debt)+'.';
+    return s+Lc(" Rahmat! — ")+owner();
+  }
   let s=`Здравствуйте, ${c.name}! Напоминаю про платёж за аренду автомобиля (${carName(c.carId)}): ${money(c.amount)}, срок — ${fmtDate(k.next)}.`;
   if(k.debt>0)s+=` Текущая задолженность: ${money(k.debt)}.`;
   return s+' Спасибо! — '+owner();
@@ -1240,7 +1473,7 @@ document.addEventListener('input',e=>{
         document.querySelectorAll('.sws .sw').forEach(x=>x.classList.remove('on'));
         const lb=t.closest('.sw');if(lb)lb.classList.add('on');
         const hb=document.querySelector('.hint b');
-        document.querySelectorAll('.hint').forEach(h=>{if(h.textContent.indexOf('Цвет:')===0){const b=h.querySelector('b');if(b)b.textContent='Свой цвет'}});
+        document.querySelectorAll('.sws + .hint b').forEach(b=>{b.textContent='Свой цвет'});
       },60);
     }
     return;
@@ -1255,6 +1488,7 @@ document.addEventListener('change',e=>{
   if(t.id==='owner'){db.settings.ownerName=t.value.trim()||'Шо-Махмуд';save();render();toast('Сохранено')}
   if(t.id==='carPhotoIn'){const f=t.files[0];t.value='';if(f)setCarPhoto(f)}
   if(t.id==='fileIn'){handleFiles([...t.files]);t.value=''}
+  if(t.id==='lang'){db.settings.lang=t.value;save();setLang(t.value);render();if(S.modal)renderModal();toast('Сохранено')}
   if(t.id==='theme'){db.settings.theme=t.value;save();applyTheme();toast('Тема изменена')}
   if(t.id==='cur'){db.settings.currency=t.value;save();render();toast('Валюта изменена')}
   if(t.id==='imp'){importBackup(t.files[0]);t.value=''}
@@ -1290,7 +1524,7 @@ async function importBackup(file){
     if(!j.db||!j.db.clients)throw 0;
     if(!confirm('Заменить текущие данные данными из копии?'))return;
     for(const id in (j.files||{})){const b=await (await fetch(j.files[id])).blob();await fput(id,b)}
-    db=fixDb(j.db);save();applyTheme();render();toast('Данные восстановлены');
+    db=fixDb(j.db);save();applyTheme();setLang(db.settings.lang||'ru');render();toast('Данные восстановлены');
   }catch(e){toast('Не удалось прочитать файл копии')}
 }
 
